@@ -1,0 +1,24 @@
+; Welcome, this is my MIPS assembly
+
+begin:
+    ADDI $t0, $zero, 0  ; clear $t0
+    
+    ; fill memory
+    ADDI $t0, $zero, 1
+    SW $t0, 0($zero)
+
+repeat:
+    LW $rs, 0($zero)    ; load operand
+    DIVI $rs, 2         ; divide by 2
+    BEQ $lo, $zero, even
+    BNQ $lo, $zero, odd
+
+even:
+    ADDI $rs, $rs, 2
+    SW   $rs, 0($zero)
+    J repeat
+
+odd:
+    ADDI $rs, $rs, 1
+    SW   $rs, 0($zero)
+    J repeat

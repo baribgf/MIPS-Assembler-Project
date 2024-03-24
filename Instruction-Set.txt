@@ -1,0 +1,39 @@
+
+# =*= The MIPS 16-bit Microprocessor Instruction Set =*= #
+# 22 Instructions									     #
+# 29 bits per instruction								 #
+# =*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*= #
+
+# Arithmetic:
+01:	ADD  rd, r1, r2		00001 4bits 4bits 4bits
+02:	SUB  rd, r1, r2		00010 4bits 4bits 4bits
+03:	MUL  rd, r1, r2		00011 4bits 4bits 4bits
+04:	DIV      r1, r2		00100 0000  4bits 4bits 
+05:	ADDI rd, r1, im		00101 4bits 4bits 16bits		 
+06:	SUBI rd, r1, im		00110 4bits 4bits 16bits		 
+07:	MULI rd, r1, im		00111 4bits 4bits 16bits		 
+08:	DIVI     r1, im		01000 0111  4bits 16bits		 
+
+# Logical:
+09:	AND  rd, r1, r2		01001 4bits 4bits 4bits		 
+10:	OR   rd, r1, r2		01010 4bits 4bits 4bits		 
+11:	XOR  rd, r1, r2		01011 4bits 4bits 4bits		 
+12:	ANDI rd, r1, im		01100 4bits 4bits 16bits		 
+13:	ORI  rd, r1, im		01101 4bits 4bits 16bits		 
+14:	XORI rd, r1, im		01110 4bits 4bits 16bits
+
+# Conditional:
+15:	SLT  rd, r1, r2		01111 4bits 4bits 4bits		 
+16:	SLTI rd, r1, im		10000 4bits 4bits 16bits		 
+
+# Data transfer:
+17:	LW   rd, rs, im		10001 4bits 4bits 16bits		 
+18:	SW   rs, rd, im		10010 4bits 4bits 16bits		 
+
+# Conditional branch:
+19:	BEQ  r1, r2, im		10011 4bits 4bits 16bits		 
+20:	BNQ  r1, r2, im		10100 4bits 4bits 16bits		 
+
+# Unconditional jump:
+21:	JR   	 rs			10101 0000  4bits 16zero
+22:	J    		 im 	10110 0000  0000  16bits
